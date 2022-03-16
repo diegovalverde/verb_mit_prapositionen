@@ -45,24 +45,30 @@ score=0;
 document.getElementById('VerbLabel').innerHTML
                 =verbs[current_verb][0] + "<br>";
 
+
+var body = document.getElementsByTagName("body")[0];
+var score_label = body.appendChild(document.createElement("label"));
+//score_label.innerHTML = score +"/" + verbs.length + "<br>";
+
 buttons = []
 
 function clearForNextWord()
 {
   score++;
+  score_label.innerHTML = score +"/" + verbs.length + "<br>";
   current_verb = (current_verb + 1) % verbs.length;
   for (var i = 0; i < buttons.length; i++){
     buttons[i].style = "background: salmon;";
   }
 
     document.getElementById('VerbLabel').innerHTML
-                    =verbs[current_verb][0] + "     " + score + "/" + verbs.length + "<br>";
+                    =verbs[current_verb][0];
 }
 
 for (var i = 0; i < prepositions.length; i++)
 {
 
-    var body = document.getElementsByTagName("body")[0];
+
     var button = body.appendChild(document.createElement("button"));
     buttons.push(button)
     button.value = i;
@@ -80,8 +86,4 @@ for (var i = 0; i < prepositions.length; i++)
       }
 
     });
-}
-
-function GetScore(){
-  return score;
 }
