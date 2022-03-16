@@ -18,4 +18,5 @@ body {
   }
   button:hover {
     background: lightsalmon;
+    transition: 0.9s;
 }

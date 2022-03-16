@@ -39,7 +39,7 @@ verbs = [["denken", 0],//"an"],
 ["(keine) Zeit haben", 7],//"f&uuml;r"],
 ["(keine) Angst haben",12], //"vor"],
 ["entdecken", 0]];
-
+var style;
 current_verb = 0;
 score=0;
 document.getElementById('VerbLabel').innerHTML
@@ -48,7 +48,7 @@ document.getElementById('VerbLabel').innerHTML
 
 var body = document.getElementsByTagName("body")[0];
 var score_label = body.appendChild(document.createElement("label"));
-//score_label.innerHTML = score +"/" + verbs.length + "<br>";
+score_label.innerHTML = score +"/" + verbs.length + "<br>";
 
 buttons = []
 
@@ -58,7 +58,7 @@ function clearForNextWord()
   score_label.innerHTML = score +"/" + verbs.length + "<br>";
   current_verb = (current_verb + 1) % verbs.length;
   for (var i = 0; i < buttons.length; i++){
-    buttons[i].style = "background: salmon;";
+    buttons[i].style = style;
   }
 
     document.getElementById('VerbLabel').innerHTML
@@ -81,7 +81,7 @@ for (var i = 0; i < prepositions.length; i++)
 
 
       } else {
-
+        style = event.target.style;
         event.target.style = "background: red;";
       }
 
